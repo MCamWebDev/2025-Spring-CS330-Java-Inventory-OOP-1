@@ -47,6 +47,13 @@ public class Armour extends Item {
     public Armour()
     {
         // Initialize all data members (including those inherited from Item)
+        super("", false);
+        this.durability = 0;
+        this.defense = 0;
+        this.material = "";
+        this.modifier = "";
+        this.modiferLevel = 0;
+        this.element = "";
     }
 
     /**
@@ -57,6 +64,14 @@ public class Armour extends Item {
     public Armour(Armour src)
     {
         // Set and/or copy data members for *this* object based on *src*.
+        super(src.name, src.stackable);
+        this.durability = src.durability;
+        this.defense = src.defense;
+        this.material = src.material;
+        this.modifier = src.modifier;
+        this.modiferLevel = src.modiferLevel;
+        this.element = src.element;
+
     }
 
     /**
@@ -190,8 +205,17 @@ public class Armour extends Item {
     public void read(Scanner snr)
     {
         super.name   = snr.next();
-
+        super.stackable = false;
+    
         // Complete this method
+        material = snr.next();
+        defense = Integer.parseInt(snr.next());
+        durability = Integer.parseInt(snr.next());
+        modifier = snr.next();
+        modiferLevel = Integer.parseInt(snr.next());
+        snr.nextLine();
+
+        return;
     }
 
     /**
@@ -201,7 +225,17 @@ public class Armour extends Item {
     public Item clone()
     {
         // Replace the next line
-        return null;
+        Armour cpy = new Armour();
+        cpy.name = this.name;
+        cpy.stackable = this.stackable;
+        cpy.setDefense(this.defense);
+        cpy.setDurability(this.durability);
+        cpy.setElement(this.element);
+        cpy.setMaterial(this.material);
+        cpy.setModifier(this.modifier);
+        cpy.setModifierLevel(this.modiferLevel);
+
+        return cpy;
     }
 
     /**
@@ -210,7 +244,16 @@ public class Armour extends Item {
     @Override
     public String toString()
     {
-        return "Implement This Function";
+        StringBuilder strBld = new StringBuilder();
+        strBld.append(String.format("Nme: %s", this.name));
+        strBld.append(String.format("Dur: %d", this.durability));
+        strBld.append(String.format("Def: %d", this.defense));
+        strBld.append(String.format("Mtl: %s", this.material));
+        strBld.append(String.format("Mdr: %s (Lvl %d)", this.modifier, this.modiferLevel));
+        strBld.append(String.format("Emt: %s", this.element));
+        strBld.append("\n");
+
+        return strBld.toString();
     }
 }
 
