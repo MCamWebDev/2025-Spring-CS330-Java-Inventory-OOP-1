@@ -95,7 +95,7 @@ public class Consumable extends Item {
         super.stackable = true;
         this.effect = snr.next();
         this.uses = Integer.parseInt(snr.next());
-        snr.nextLine();
+        //snr.nextLine();
         // Complete this method
     }
 
@@ -121,11 +121,11 @@ public class Consumable extends Item {
     public String toString()
     {
         StringBuilder strBld = new StringBuilder();
-        strBld.append(String.format("Nme: %s", this.name));
-        strBld.append(String.format("Eft: %s", this.effect));
-        strBld.append(String.format("Use: %d", this.uses));
+        strBld.append(String.format("  Nme: %s\n", this.name));
+        strBld.append(String.format("  Eft: %s\n", this.effect));
+        strBld.append(String.format("  Use: %d\n", this.uses));
         //strBld.append(String.format("Qty: %d", 5));
-        strBld.append("\n");
+        //strBld.append("\n");
 
         return strBld.toString();
     }

@@ -209,11 +209,12 @@ public class Armour extends Item {
     
         // Complete this method
         material = snr.next();
-        defense = Integer.parseInt(snr.next());
         durability = Integer.parseInt(snr.next());
+        defense = Integer.parseInt(snr.next());
         modifier = snr.next();
         modiferLevel = Integer.parseInt(snr.next());
-        snr.nextLine();
+        element = snr.next();
+        //snr.nextLine();
 
         return;
     }
@@ -245,13 +246,13 @@ public class Armour extends Item {
     public String toString()
     {
         StringBuilder strBld = new StringBuilder();
-        strBld.append(String.format("Nme: %s", this.name));
-        strBld.append(String.format("Dur: %d", this.durability));
-        strBld.append(String.format("Def: %d", this.defense));
-        strBld.append(String.format("Mtl: %s", this.material));
-        strBld.append(String.format("Mdr: %s (Lvl %d)", this.modifier, this.modiferLevel));
-        strBld.append(String.format("Emt: %s", this.element));
-        strBld.append("\n");
+        strBld.append(String.format("  Nme: %s\n", this.name));
+        strBld.append(String.format("  Dur: %d\n", this.durability));
+        strBld.append(String.format("  Def: %d\n", this.defense));
+        strBld.append(String.format("  Mtl: %s\n", this.material));
+        strBld.append(String.format("  Mdr: %s (Lvl %d)\n", this.modifier, this.modiferLevel));
+        strBld.append(String.format("  Emt: %s\n", this.element));
+        //strBld.append("\n");
 
         return strBld.toString();
     }
